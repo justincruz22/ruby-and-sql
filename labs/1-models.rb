@@ -22,7 +22,7 @@ values = {first_name: "Craig",
             last_name: "Federighi",
             email: "craig@apple.com",
             phone_number: "888-555-1212",
-            company_id: apple.id}
+            company_id: apple_id}
 contact = Contact.new(values)
 contact.save
 
@@ -34,7 +34,7 @@ contact.first_name = "Andy"
 contact.last_name = "Jassy"
 contact.email = "andy@amazon.com"
 contact.phone_number = "999-867-5309"
-contact.company_id = "amazon_id"
+contact.company_id = amazon_id
 contact.save
 
 contact = Contact.new
@@ -42,7 +42,7 @@ contact.first_name = "Tim"
 contact.last_name = "Cook"
 contact.email = "tim@apple.com"
 contact.phone_number = "123-867-5309"
-contact.company_id = "apple_id"
+contact.company_id = apple_id
 contact.save
 
 tesla = Company.where({name: "Tesla, Inc."})[0]
@@ -50,10 +50,10 @@ tesla_id = tesla.id
 
 contact = Contact.new
 contact.first_name = "Elon"
-contact.last_name = "Must"
+contact.last_name = "Musk"
 contact.email = "elon@tesla.com"
 contact.phone_number = "456-867-5309"
-contact.company_id = "tesla_id"
+contact.company_id = tesla_id
 contact.save
 
 
@@ -62,7 +62,13 @@ contact.save
 # 3. write code to display how many contacts are in the database AND each contact's info (name, email), e.g.:
 puts "There are #{Contact.all.count} contacts."
 all_contacts = Contact.all
+# ^^^ created a variable for all contacts 
 # what class is all contacts? An array. it's a list of all contacts in the contacts table.
+# the use a "for" loop... we know we have created contacts, but we don't know how many. so we use a for loop to iterate the array and write the output for all contacts.
+
+for contact in all_contacts
+    puts "#{contact.first_name} #{contact.last_name} - #{contact.email}"
+end
 
 
 # ---------------------------------
