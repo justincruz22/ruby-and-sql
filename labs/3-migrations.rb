@@ -25,6 +25,18 @@ Activity.destroy_all
 
 # 5. Insert at least 2 activities into the activities table
 
+tesla = Company.where({name: "Tesla, Inc."})[0]
+tesla_id = tesla.id
+
+contact = Contact.new
+contact.first_name = "Elon"
+contact.last_name = "Musk"
+contact.email = "elon@tesla.com"
+contact.phone_number = "456-867-5309"
+contact.company_id = tesla_id
+contact.save
+
+
 # 6. Loop through the salespeople and display their activites and related contacts, e.g.:
 
 # ---------------------------------
